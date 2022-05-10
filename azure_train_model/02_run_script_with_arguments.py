@@ -17,6 +17,7 @@ sklearn_env.python.conda_dependencies = packages
 # Create a script config
 script_config = ScriptRunConfig(source_directory='./src',
                                 script='diabetes_training.py',
+                                arguments = ['--reg_rate', 0.1],
                                 environment=sklearn_env,
                                 compute_target='cpu-cluster') 
 

@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import joblib
 import os
+import argparse
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
@@ -19,6 +20,13 @@ workspace = Workspace(subscription_id, resource_group, workspace_name)
 # Get the experiment run context
 run = Run.get_context()
 
+# Set regularization hyperparameter
+parser = argparse.ArgumentParser()
+parser.add_argument('--reg_rate', type=float, dest='reg', default=0.01)
+args = parser.parse_args()
+reg = args.reg
+
+# load the diabetes dataset
 diabetes = Dataset.get_by_name(workspace, name='diabetes-data')
 diabetes = diabetes.to_pandas_dataframe()
 
@@ -53,8 +61,8 @@ os.makedirs('outputs', exist_ok=True)
 joblib.dump(value=model, filename='outputs/diabetes_model.pkl')
 
 # Register the model
-run.register_model(model_path='outputs/diabetes_model.pkl', model_name='diabetes_model',
-                   tags={'Training context':'Script'},
-                   properties={'AUC': run.get_metrics()['AUC'], 'Accuracy': run.get_metrics()['Accuracy']})
+# run.register_model(model_path='outputs/diabetes_model.pkl', model_name='diabetes_model',
+#                    tags={'Training context':'Script'},
+#                    properties={'AUC': run.get_metrics()['AUC'], 'Accuracy': run.get_metrics()['Accuracy']})
 
 run.complete()
