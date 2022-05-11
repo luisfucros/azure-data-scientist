@@ -1,0 +1,12 @@
+name: aml-env
+dependencies:
+  - python=3.8
+  - pandas
+  - numpy
+  - scikit-learn
+  - joblib
+  - pip
+  - pip:
+      - azureml-core
+      - azureml-defaults
+      - azureml-dataset-runtime
