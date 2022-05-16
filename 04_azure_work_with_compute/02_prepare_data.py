@@ -8,7 +8,7 @@ ws = Workspace.get(name='aml-workspace',
 default_ds = ws.get_default_datastore()
 
 if 'diabetes dataset' not in ws.datasets:
-    default_ds.upload_files(files=['../azure_work_with_data/data/diabetes.csv'], # Upload the diabetes csv files in /data
+    default_ds.upload_files(files=['../03_azure_work_with_data/data/diabetes.csv'], # Upload the diabetes csv files in /data
                         target_path='diabetes-data/', # Put it in a folder path in the datastore
                         overwrite=True, # Replace existing files of the same name
                         show_progress=True)
