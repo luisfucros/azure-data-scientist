@@ -1,5 +1,6 @@
 from azureml.core import Workspace
 from azureml.core import Environment
+from azureml.core.compute import ComputeTarget
 from azureml.core.runconfig import RunConfiguration
 from azureml.data import OutputFileDatasetConfig
 from azureml.pipeline.steps import PythonScriptStep
@@ -11,7 +12,7 @@ from azureml.pipeline.core import Pipeline
 ws = Workspace.from_config(path='./.azureml/config.json')
 
 # Create a Python environment for the experiment (from a .yml file)
-experiment_env = Environment.from_conda_specification("aml-env", experiment_folder + "./.azureml/aml-env.yml")
+experiment_env = Environment.from_conda_specification("aml-env", "./.azureml/aml-env.yml")
 
 # Register the environment 
 experiment_env.register(workspace=ws)
@@ -39,7 +40,7 @@ prepped_data = OutputFileDatasetConfig("prepped_data")
 
 # Step 1, Run the data prep script
 prep_step = PythonScriptStep(name = "Prepare Data",
-                                source_directory = experiment_folder,
+                                source_directory = './src',
                                 script_name = "prep_diabetes.py",
                                 arguments = ['--input-data', diabetes_ds.as_named_input('raw_data'),
                                              '--prepped-data', prepped_data],
@@ -49,7 +50,7 @@ prep_step = PythonScriptStep(name = "Prepare Data",
 
 # Step 2, run the training script
 train_step = PythonScriptStep(name = "Train and Register Model",
-                                source_directory = experiment_folder,
+                                source_directory = './src',
                                 script_name = "train_diabetes.py",
                                 arguments = ['--training-data', prepped_data.as_input()],
                                 compute_target = pipeline_cluster,
