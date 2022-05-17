@@ -14,7 +14,3 @@ for model in Model.list(ws):
         prop = model.properties[prop_name]
         print ('\t',prop_name, ':', prop)
     print('\n')
-
-# Specify a model
-model = ws.models['diabetes_model']
-print(model.name, 'version', model.version)
