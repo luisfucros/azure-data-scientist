@@ -1,0 +1,12 @@
+name: aml-env
+dependencies:
+- python=3.6.2
+- scikit-learn
+- ipykernel
+- matplotlib
+- pandas
+- pip
+- pip:
+  - azureml-defaults
+  - azureml-pipeline
+  - pyarrow
