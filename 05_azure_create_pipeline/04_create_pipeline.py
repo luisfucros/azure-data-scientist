@@ -72,7 +72,7 @@ print("Pipeline submitted for execution.")
 pipeline_run.wait_for_completion(show_output=True)
 
 # Publish the pipeline from the run
-published_pipeline = pipeline_run.publish_pipeline(
-    name="diabetes-training-pipeline", description="Trains diabetes model", version="1.0")
+# published_pipeline = pipeline_run.publish_pipeline(
+#     name="diabetes-training-pipeline", description="Trains diabetes model", version="1.0")
 
-print(published_pipeline)
+# print(published_pipeline)

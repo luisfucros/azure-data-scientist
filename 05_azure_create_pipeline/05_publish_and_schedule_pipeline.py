@@ -38,3 +38,21 @@ response = requests.post(rest_endpoint,
                          json={"ExperimentName": experiment_name})
 run_id = response.json()["Id"]
 print(run_id)
+
+from azureml.pipeline.core.run import PipelineRun
+
+published_pipeline_run = PipelineRun(ws.experiments[experiment_name], run_id)
+published_pipeline_run.wait_for_completion(show_output=True)
+
+
+# Schedule
+from azureml.pipeline.core import ScheduleRecurrence, Schedule
+
+# Submit the Pipeline every Monday at 00:00 UTC
+recurrence = ScheduleRecurrence(frequency="Week", interval=1, week_days=["Monday"], time_of_day="00:00")
+weekly_schedule = Schedule.create(ws, name="weekly-diabetes-training", 
+                                  description="Based on time",
+                                  pipeline_id=published_pipeline.id, 
+                                  experiment_name='mslearn-diabetes-pipeline', 
+                                  recurrence=recurrence)
+print('Pipeline scheduled.')
