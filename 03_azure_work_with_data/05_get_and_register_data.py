@@ -27,7 +27,7 @@ try:
                                         name='diabetes dataset',
                                         description='diabetes data',
                                         tags = {'format':'CSV'},
-                                        create_new_version=True)
+                                        create_new_version=True) # Datasets can be versioned, enabling you to track historical versions of datasets that were used in experiments
 except Exception as ex:
     print(ex)
 
