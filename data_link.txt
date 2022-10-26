@@ -1,0 +1,5 @@
+Web URL: https://aka.ms/diabetes-data
+Name: diabetes-data
+Dataset type: Tabular
+Description: Diabetes data
+Skip data validation: Do not select
