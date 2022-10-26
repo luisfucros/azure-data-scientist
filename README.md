@@ -1,1 +1,1 @@
-# azure-tutorial
+# Azure Data Scientist Associate Tutorial
