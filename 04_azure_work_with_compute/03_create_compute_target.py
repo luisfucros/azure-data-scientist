@@ -1,5 +1,6 @@
 from azureml.core import Workspace
 from azureml.core.compute import ComputeTarget, AmlCompute
+from azureml.exceptions import ComputeTargetException
 
 # Get workspace
 ws = Workspace.get(name='aml-workspace',
