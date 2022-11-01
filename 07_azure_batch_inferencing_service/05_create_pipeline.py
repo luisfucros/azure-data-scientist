@@ -28,7 +28,7 @@ parallel_run_config = ParallelRunConfig(
     error_threshold=10,
     output_action="append_row",
     environment=batch_env,
-    compute_target='your-compute-cluster',
+    compute_target='cpu-cluster',
     node_count=2)
 
 parallelrun_step = ParallelRunStep(

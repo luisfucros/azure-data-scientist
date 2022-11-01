@@ -5,7 +5,7 @@ from azureml.core.compute_target import ComputeTargetException
 # Load the workspace from the saved config file
 ws = Workspace.from_config()
 
-cluster_name = "your-compute-cluster"
+cluster_name = "cpu-cluster"
 
 try:
     # Check for existing compute target
