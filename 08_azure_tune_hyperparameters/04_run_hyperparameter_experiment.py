@@ -35,7 +35,7 @@ hyperdrive = HyperDriveConfig(run_config=script_config,
                           policy=None, # No early stopping policy
                           primary_metric_name='AUC', # Find the highest AUC metric
                           primary_metric_goal=PrimaryMetricGoal.MAXIMIZE, 
-                          max_total_runs=6, # Restict the experiment to 6 iterations
+                          max_total_runs=6, # Restrict the experiment to 6 iterations
                           max_concurrent_runs=2) # Run up to 2 iterations in parallel
 
 # Run the experiment
