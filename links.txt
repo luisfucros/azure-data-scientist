@@ -3,3 +3,7 @@ Name: diabetes-data
 Dataset type: Tabular
 Description: Diabetes data
 Skip data validation: Do not select
+
+
+databricks: https://microsoftlearning.github.io/dp-090-databricks-ml/
+            https://github.com/MicrosoftLearning/dp-090-databricks-ml
