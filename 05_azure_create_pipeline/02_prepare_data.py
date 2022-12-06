@@ -8,7 +8,7 @@ default_ds = ws.get_default_datastore()
 if 'diabetes dataset' not in ws.datasets:
     default_ds.upload_files(files=['../03_azure_work_with_data/data/diabetes.csv'], # Upload the diabetes csv files in /data
                         target_path='diabetes-data/', # Put it in a folder path in the datastore
-                        overwrite=True, # Replace existing files of the same name
+                        overwrite=True, # Replace existing files with same name
                         show_progress=True)
 
     #Create a tabular dataset from the path on the datastore (this may take a short while)
