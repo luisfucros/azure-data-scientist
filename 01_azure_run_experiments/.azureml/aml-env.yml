@@ -6,5 +6,6 @@ dependencies:
   - pip
   - pip:
       - azureml-core
+      - azureml-sdk
       - azureml-defaults
       - azureml-mlflow
